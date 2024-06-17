@@ -31,3 +31,10 @@ if (!wcscmp(objTypeInfo->TypeName.Buffer, L"Process")) {
 	}
 }
 ```
+
+## Utilizing This In An Anti Tamper Software
+
+This can be very helpful to stop cheaters from opening a handle to your process, You can either terminate the current process if a handle was opened from an unsigned process with specific permissions, Or just close the handle that was opened in the first place.
+
+## Stripping Permissions?
+As far as i know, Stripping permissions from a process handle (usermode) **is NOT** possible, I have tried using **NtSetInformationObject** with **ObjectBasicInformation** with a new **GrantedAccess** value, But i got an error saying that **ObjectBasicInformation** was **NOT** a valid information class for this operation. 
